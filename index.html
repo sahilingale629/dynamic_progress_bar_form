@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionnaire</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+<div class="questionnaire">
+    <div class="question-screen active" id="screen1">
+        <h2>Name</h2>
+        <input type="text" class="text-input" placeholder="Enter at least 3 characters" required>
+        
+        <h2>Work Mode</h2>
+        <label><input type="radio" name="work_mode" class="radio-btn" required> In-Office</label><br>
+        <label><input type="radio" name="work_mode" class="radio-btn" required> Remote</label>
+        
+        <h2>Work Experience</h2>
+        <label><input type="radio" name="work_experience" class="radio-btn" required> Fresher</label><br>
+        <label><input type="radio" name="work_experience" class="radio-btn" required> Professional</label>
+        
+    </div>
+
+    <div class="question-screen" id="screen2">
+        <h2>Previous Company</h2>
+        <input type="text" class="text-input" placeholder="Enter at least 3 characters" required>
+        
+        <h2>Branch</h2>
+        <select class="select-box" required> 
+            <option value="" disabled selected>Select an option</option>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+        </select>
+    
+        <h2>Position Applying for</h2>
+        <select class="select-box" required>
+            <option value="" disabled selected>Select an option</option>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+        </select>
+        
+        <br>
+        <button class="prev-btn">Previous</button>
+        <button class="submit-btn">Submit</button>
+    </div>
+
+
+    
+
+
+
+
+
+
+    <div class="progress-bar">
+        <div class="progress"></div>
+    </div>
+
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="./js/script.js"></script>
+
+</body>
+</html>
