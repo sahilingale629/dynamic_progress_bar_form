@@ -22,36 +22,38 @@ body {
     display: block;
 }
 
-.text-input,
-.select-box {
+.text-input {
     width: 100%;
     margin-bottom: 10px;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    background-color: #f2f2f2; /* Grey background color */
+    border-color: #ccc; /* Grey border color */
 }
 
-.radio-btn {
-    margin-right: 10px;
-}
+
+
+
 
 .progress-bar {
     margin-top: 20px;
-    height: 10px;
+    height: 5px;
     background-color: #e0e0e0;
     border-radius: 5px;
     overflow: hidden;
 }
 
 .progress {
+    width: 0%;
     height: 100%;
-    background-color: #4caf50;
+    background-color: #fa3737;
 }
 
 button {
     padding: 10px 20px;
-    background-color: #4caf50;
+    background-color: #fa3737;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -59,9 +61,87 @@ button {
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #dd855c;
 }
 
 button.prev-btn {
     margin-right: 10px;
 }
+
+
+
+
+.rounded-select {
+  border-radius: 4px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  width: 200px;
+}
+
+/* Customize scrollbar */
+.select-box::-webkit-scrollbar {
+    width: 12px; /* Set width of the scrollbar */
+}
+
+.select-box::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Set track color */
+}
+
+.select-box::-webkit-scrollbar-thumb {
+    background: #fa3737; /* Set thumb color */
+    border-radius: 6px; /* Round the thumb */
+}
+
+.select-box::-webkit-scrollbar-thumb:hover {
+    background: #fa3737; /* Change thumb color on hover */
+}
+
+.myradio {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.myradio label {
+    flex: 1;
+    margin-right: 20px; /* Adjust the margin as needed */
+    background-color: #f2f2f2; /* Grey background color */
+    padding: 10px; /* Add padding for spacing */
+    border-radius: 4px; /* Add rounded corners */
+    text-align: center; /* Center the text */
+}
+
+
+
+.select-box {
+    position: relative;
+    width: calc(100% - 18px);  /* Take up all the width of its container */
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px; /* Rounded corners for select box */
+    box-sizing: border-box;
+    background-color: #f2f2f2; /* Grey background color */
+    border-color: #ccc; /* Grey border color */
+    overflow-y: auto; /* Enable vertical scrolling */
+    font-weight: bold;
+    
+    
+}
+
+.select-box option {
+    width: 60%; /* Take up all the width of its container */
+    display: block;
+    border: 1px solid #ccc;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px; /* Add rounded corners */
+    background-color: #ccc; /* Grey background color */
+    padding: 8px;
+    box-sizing: border-box;
+    text-align: center;
+    font-weight: bold;
+    color: black; /* Grey text color */
+    margin-bottom: 10px;
+}
+

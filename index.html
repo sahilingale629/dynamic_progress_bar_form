@@ -1,68 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Questionnaire</title>
-    <link rel="stylesheet" href="./css/style.css">
-</head>
-<body>
-
-<div class="questionnaire">
-    <div class="question-screen active" id="screen1">
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="questionnaire">
+      <div class="progress-bar">
+        <div class="progress"></div>
+      </div>
+      <div class="question-screen active" id="screen1">
         <h2>Name</h2>
-        <input type="text" class="text-input" placeholder="Enter at least 3 characters" required>
-        
-        <h2>Work Mode</h2>
-        <label><input type="radio" name="work_mode" class="radio-btn" required> In-Office</label><br>
-        <label><input type="radio" name="work_mode" class="radio-btn" required> Remote</label>
-        
-        <h2>Work Experience</h2>
-        <label><input type="radio" name="work_experience" class="radio-btn" required> Fresher</label><br>
-        <label><input type="radio" name="work_experience" class="radio-btn" required> Professional</label>
-        
-    </div>
+        <input
+          type="text"
+          class="text-input"
+          placeholder="Enter Name"
+          required
+        />
 
-    <div class="question-screen" id="screen2">
+        <h2>Work Mode</h2>
+        <div class="myradio">
+          <label
+            ><input type="radio" name="work_mode" class="radio-btn" required />
+            In-Office</label
+          ><br />
+          <label
+            ><input type="radio" name="work_mode" class="radio-btn" required />
+            Remote</label
+          >
+        </div>
+        <h2>Work Experience</h2>
+        <div class="myradio">
+          <label
+            ><input
+              type="radio"
+              name="work_experience"
+              class="radio-btn"
+              required
+            />
+            Fresher</label
+          ><br />
+          <label
+            ><input
+              type="radio"
+              name="work_experience"
+              class="radio-btn"
+              required
+            />
+            Professional</label
+          >
+        </div>
+      </div>
+
+      <div class="question-screen" id="screen2">
         <h2>Previous Company</h2>
-        <input type="text" class="text-input" placeholder="Enter at least 3 characters" required>
-        
+        <input
+          type="text"
+          id="previous_company"
+          class="text-input"
+          placeholder="Company's Name"
+          required
+        />
+
         <h2>Branch</h2>
-        <select class="select-box" required> 
-            <option value="" disabled selected>Select an option</option>
-            <option value="1">Option 1</option>
-            <option value="2">Option 2</option>
+
+        <select
+          onfocus="this.size=5;"
+          onblur="this.size=1;"
+          onchange="this.size=1; "
+          id="branch_id"
+          class="select-box"
+          style="color: grey"
+          required
+        >
+          <option value="" disabled selected>Choose Position</option>
+          <option value="1">Computer Science</option>
+          <option value="2">Information Technology</option>
+          <option value="3">Mechanical</option>
+          <option value="4">Civil</option>
+          <option value="5">Electrical</option>
+          <option value="6">Electronics</option>
+          <option value="7">Artificial Intelligence</option>
+          <option value="8">CyberSecurity</option>
+          <option value="9">E & TC</option>
+          <option value="10">Instrumentation</option>
+          <option value="11">Metallurgy</option>
+          <option value="12">Chemical</option>
         </select>
-    
+        <div class="options-list">
+          <!-- Options will be dynamically added here -->
+        </div>
+
         <h2>Position Applying for</h2>
-        <select class="select-box" required>
-            <option value="" disabled selected>Select an option</option>
-            <option value="1">Option 1</option>
-            <option value="2">Option 2</option>
+        <select
+          onfocus="this.size=5;"
+          onblur="this.size=1;"
+          onchange="this.size=1; this.blur();"
+          id="position_id"
+          class="select-box"
+          style="color: grey"
+          required
+        >
+          <option value="" disabled selected>Choose Position</option>
+          <option value="1">Software Engineer</option>
+          <option value="2">Frontend Developer</option>
+          <option value="3">Backend Developer</option>
+          <option value="4">Full Stack Developer</option>
+          <option value="5">SQL Developer</option>
+          <option value="6">DevOps Engineer</option>
+          <option value="7">Computer Programmer</option>
+          <option value="8">Application Developer</option>
+          <option value="9">IT Manager</option>
+          <option value="10">Cloud Architect</option>
+          <option value="11">Technical Support</option>
+          <option value="12">Web Developer</option>
+          <option value="13">UI/UX Developer</option>
+          <option value="14">Network Administrator</option>
         </select>
-        
-        <br>
+
+        <br />
         <button class="prev-btn">Previous</button>
         <button class="submit-btn">Submit</button>
+      </div>
     </div>
 
-
-    
-
-
-
-
-
-
-    <div class="progress-bar">
-        <div class="progress"></div>
-    </div>
-
-
-</div>
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="./js/script.js"></script>
-
-</body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./js/script.js"></script>
+  </body>
 </html>

@@ -2,25 +2,58 @@ $(document).ready(function () {
   // Function to check if all required fields in screen 1 are filled
   function checkScreen1Fields() {
     var name = $('#screen1 input[type="text"]').val();
+
     var workModeChecked =
       $('#screen1 input[name="work_mode"]:checked').length > 0;
     var workExperienceChecked =
       $('#screen1 input[name="work_experience"]:checked').length > 0;
-    // Count the number of filled fields
-    var filledFields = 0;
-    if (name.length >= 3) filledFields++;
-    if (workModeChecked) filledFields++;
-    if (workExperienceChecked) filledFields++;
-    // Calculate percentage of completion
-    var totalFields = 3; // Total number of fields in screen 1
-    var completionPercentage = (filledFields / totalFields) * 100;
-    return completionPercentage;
+    // Count the number of filled fields in screen 1
+    var filledFieldsScreen1 = 0;
+    if (name.length >= 3) filledFieldsScreen1++;
+    if (workModeChecked) filledFieldsScreen1++;
+    if (workExperienceChecked) filledFieldsScreen1++;
+    // Calculate percentage of completion for screen 1
+    var totalFieldsScreen1 = 3; // Total number of fields in screen 1
+    var completionPercentageScreen1 =
+      (filledFieldsScreen1 / totalFieldsScreen1) * 100;
+
+    return completionPercentageScreen1;
+  }
+
+  // Function to check if all required fields in screen 2 are filled
+  function checkScreen2Fields() {
+    var previousCompany = $('#screen2 input[type="text"]').val();
+
+    // var branchSelected = $(
+    //   '#screen2 select[name="branch"] option:selected'
+    // ).val(); // Corrected selector for select element
+
+    var branchSelected = $("#branch_id").find(":selected").val();
+
+    var positionSelected = $("#position_id").find(":selected").val();
+
+    var filledFieldsScreen2 = 0;
+    if (previousCompany.length >= 3) filledFieldsScreen2++;
+    if (branchSelected) filledFieldsScreen2++;
+    if (positionSelected) filledFieldsScreen2++;
+
+    console.log(previousCompany);
+    console.log(branchSelected);
+    console.log(positionSelected);
+    // Calculate percentage of completion for screen 2
+    var totalFieldsScreen2 = 3; // Total number of fields in screen 2
+    var completionPercentageScreen2 =
+      (filledFieldsScreen2 / totalFieldsScreen2) * 100;
+    return completionPercentageScreen2;
   }
 
   // Function to update the progress bar dynamically
   function updateProgressBar() {
-    var completionPercentage = checkScreen1Fields();
-    $(".progress").css("width", completionPercentage + "%");
+    var completionPercentageScreen1 = checkScreen1Fields();
+    var completionPercentageScreen2 = checkScreen2Fields();
+    var totalCompletionPercentage =
+      (completionPercentageScreen1 + completionPercentageScreen2) / 2; // Average completion percentage
+    $(".progress").css("width", totalCompletionPercentage + "%");
   }
 
   // Function to navigate from screen 1 to screen 2
@@ -35,6 +68,10 @@ $(document).ready(function () {
     // Reset input fields in screen 1
     $('#screen1 input[type="text"]').val("");
     $('#screen1 input[type="radio"]').prop("checked", false);
+    // Reset input fields in screen 2
+    $('#screen2 input[type="text"]').val("");
+    $('#screen2 select[name="branch"]').val(""); // Reset select element for branch
+    $('#screen2 select[name="position"]').val(""); // Reset select element for position
     // Show screen 1
     $("#screen2").removeClass("active");
     $("#screen1").addClass("active");
@@ -55,6 +92,14 @@ $(document).ready(function () {
     if (checkScreen1Fields() === 100) {
       navigateToScreen2();
     }
+    updateProgressBar(); // Update progress bar dynamically on field change
+  });
+
+  //
+  $("#screen2 input, #screen2 select").on("change", function () {
+    // if (checkScreen1Fields() === 100) {
+    //   navigateToScreen2();
+    // }
     updateProgressBar(); // Update progress bar dynamically on field change
   });
 
